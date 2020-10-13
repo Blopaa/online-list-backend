@@ -4,6 +4,9 @@ import morgan from 'morgan'
 import cors from 'cors'
 const app = express()
 
+//routes import
+import listsRoutes from './routes/lists.routes'
+
 //settings
 app.set('pkg', pkg)
 app.set('port', process.env.PORT || 4000)
@@ -22,5 +25,7 @@ app.get('/', (req, res) => {
         version: app.get('pkg').version
     })
 })
+
+app.use("/api/lists", listsRoutes)
 
 export default app
