@@ -49,3 +49,9 @@ export const getUserList = async (req, res) => {
   const listsAsAuthor = await List.find({ author: userE });
   res.json({ listsAsUser, listsAsAuthor });
 };
+
+export const getUser = async(req, res) => {
+    const user = await User.findById(req.params.userId, {password: 0})
+    if(!user) return res.status(500).json({message: "user not found"})
+    res.json(user)
+}
