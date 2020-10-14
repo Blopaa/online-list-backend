@@ -1,4 +1,5 @@
 import User from '../models/User'
+import List from '../models/Lists'
 import jwt from 'jsonwebtoken'
 
 export const signIn = async (req, res) => {
@@ -36,4 +37,10 @@ export const signUp = async (req, res) => {
     console.log(savedUser)
 
     res.json({token})
+}
+
+export const getUserList = async (req, res) => {
+    const userE = await req.params.userE
+    const lists = await List.find({users: [userE]})
+    res.json(lists)
 }

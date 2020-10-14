@@ -6,11 +6,12 @@ export const getLists = async (req, res) => {
 };
 
 export const createList = async (req, res) => {
-  const { name, fields, users } = req.body;
+  const { name, fields, users, author } = req.body;
   const list = new List({
     name,
     fields,
     users,
+    author
   });
   const listSaved = await list.save()
   res.status(201).json(listSaved)

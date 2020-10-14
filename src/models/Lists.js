@@ -1,40 +1,40 @@
-import {Schema, model} from  'mongoose'
+import { Schema, model } from "mongoose";
 
-const listSchema = new Schema({
+const listSchema = new Schema(
+  {
     name: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     fields: {
-        type: Array,
-        default: [{
-            thing: {
-                type: String,
-            },
-            doit:{
-                type: Boolean
-            },
-            much: {
-                type: Number,
-            }
-        }]
+      type: Array,
+      default: [
+        {
+          thing: {
+            type: String,
+          },
+          doit: {
+            type: Boolean,
+          },
+          much: {
+            type: Number,
+          },
+        },
+      ],
     },
     users: {
-        type: Object,
-        required: true,
-        default: {
-            author: {
-                type: String,
-                required: true
-            },
-            allowedUsers: {
-                type: Array,
-            }
-        }
-    }
-}, {
+      type: Array,
+      required: true,
+    },
+    author: {
+      type: String,
+      required: true,
+    },
+  },
+  {
     timestamps: true,
-    versionKey: false
-})
+    versionKey: false,
+  }
+);
 
-export default model("List", listSchema)
+export default model("List", listSchema);
