@@ -6,6 +6,7 @@ const app = express()
 
 //routes import
 import listsRoutes from './routes/lists.routes'
+import userRoutes from './routes/user.routes'
 
 //settings
 app.set('pkg', pkg)
@@ -27,5 +28,6 @@ app.get('/', (req, res) => {
 })
 
 app.use("/api/lists", listsRoutes)
+app.use("/api/users", userRoutes)
 
 export default app
