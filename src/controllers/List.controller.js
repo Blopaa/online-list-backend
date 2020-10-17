@@ -6,7 +6,7 @@ export const getLists = async (req, res) => {
 };
 
 export const createList = async (req, res) => {
-  const { name, fields, users, author } = req.body;
+  const { name, fields, users} = req.body;
   const list = new List({
     name,
     fields,
