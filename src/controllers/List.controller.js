@@ -11,7 +11,7 @@ export const createList = async (req, res) => {
     name,
     fields,
     users,
-    author
+    author: req.userId
   });
   const listSaved = await list.save()
   res.status(201).json(listSaved)

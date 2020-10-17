@@ -45,13 +45,9 @@ export const signUp = async (req, res) => {
 
 export const getUserList = async (req, res) => {
   const userE = await req.params.userE;
-  const listsAsUser = await List.find({ users: [userE] });
-  const listsAsAuthor = await List.find({ author: userE });
-  res.json({ listsAsUser, listsAsAuthor });
+  const user = await User.findById(req.userId, {password: 0})
+  if(!user) return res.status(500).json({message: "user not found"})
+  const listsAsUser = await List.find({ users: [req.userId] });
+  const listsAsAuthor = await List.find({ author: req.userId });
+  res.json({user, listsAsUser, listsAsAuthor });
 };
-
-export const getUser = async(req, res) => {
-    const user = await User.findById(req.params.userId, {password: 0})
-    if(!user) return res.status(500).json({message: "user not found"})
-    res.json(user)
-}
