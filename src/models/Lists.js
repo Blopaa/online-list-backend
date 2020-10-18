@@ -8,6 +8,7 @@ const listSchema = new Schema(
     },
     fields: {
       type: Array,
+      required: true,
       default: [
         {
           thing: {
@@ -24,6 +25,7 @@ const listSchema = new Schema(
     },
     users: {
       type: Array,
+      default: [],
       required: true,
     },
     author: {
