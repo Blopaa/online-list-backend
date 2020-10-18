@@ -6,6 +6,7 @@ const router = Router()
 router.get('/users', verifyToken, UserCtrl.getUsers)
 router.post('/signin',UserCtrl.signIn)
 router.post('/signup',UserCtrl.signUp)
+router.get('/:userId', UserCtrl.getUserById)
 router.get('/', verifyToken, UserCtrl.getUserList)
 
 

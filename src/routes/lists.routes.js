@@ -7,5 +7,6 @@ router.get("/", verifyToken, ListCtrl.getLists);
 router.post("/", verifyToken, ListCtrl.createList);
 router.put("/:listId", verifyToken, ListCtrl.updateListById);
 router.delete("/:listId", verifyToken, ListCtrl.deleteListById);
+router.put("/:userEmail/:listId", verifyToken, ListCtrl.addUserList);
 
 export default router;

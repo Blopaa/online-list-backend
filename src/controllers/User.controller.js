@@ -43,8 +43,14 @@ export const signUp = async (req, res) => {
   res.json({ token });
 };
 
+export const getUserById = async (req, res) => {
+  const userId = req.params.userId
+  const user = await User.findById(userId)
+  if(!user) return res.status(404).json({mesasge: "user not found"})
+  res.json(user)
+}
+
 export const getUserList = async (req, res) => {
-  const userE = await req.params.userE;
   const user = await User.findById(req.userId, {password: 0})
   if(!user) return res.status(500).json({message: "user not found"})
   const listsAsUser = await List.find({ users: [req.userId] });
