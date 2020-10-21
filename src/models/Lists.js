@@ -8,22 +8,6 @@ const listSchema = new Schema(
     },
     fields: {
       type: Array,
-      default: [
-        {
-          thing: {
-            type: String
-          },
-          doit: {
-            type: Boolean
-          },
-          much: {
-            type: Number
-          },
-          unit: {
-            type: String
-          }
-        },
-      ]
     },
     users: {
       type: Array,
