@@ -10,6 +10,6 @@ router.post("/", verifyToken, ListCtrl.createList);
 router.put("/:listId", verifyToken, ListCtrl.updateListById);
 router.delete("/:listId", verifyToken, ListCtrl.deleteListById);
 router.put("/addproduct/:listId", verifyToken, ListCtrl.addProduct)
-router.put("adduser/:userEmail/:listId", verifyToken, ListCtrl.addUserList);
+router.put("/adduser/:userEmail/:listId", verifyToken, ListCtrl.addUserList);
 
 export default router;
