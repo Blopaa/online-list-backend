@@ -86,7 +86,7 @@ export const  deleteProduct = async (req, res) => {
   console.log(newfields)
   const list = await List.findById(listId)
   if(!list) return res.status(404).json("couldn't find list")
-  await List.findByIdAndUpdate(listId, {fields: newfields}, {new: true})
+  const newlist = await List.findByIdAndUpdate(listId, {fields: newfields}, {new: true})
 
-  res.json('deleted')
+  res.json(newlist)
 }
