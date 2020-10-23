@@ -69,7 +69,7 @@ export const addUserList = async (req, res) => {
 };
 
 export const  addProduct = async (req, res) => {
-  const {listId} = req.params
+  const {listId} = req.params 
   const newfield = req.body
   const list = await List.findById(listId)
   if(!list) return res.status(404).json("couldn't find list")
@@ -83,7 +83,7 @@ export const  addProduct = async (req, res) => {
 export const  deleteProduct = async (req, res) => {
   const {listId} = req.params
   const newfields = req.body
-  console.log(newfields)
+  console.log('delete')
   const list = await List.findById(listId)
   if(!list) return res.status(404).json("couldn't find list")
   const newlist = await List.findByIdAndUpdate(listId, {fields: newfields}, {new: true})
