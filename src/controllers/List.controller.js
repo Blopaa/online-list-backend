@@ -1,4 +1,3 @@
-import { restart } from "nodemon";
 import List from "../models/Lists";
 import User from "../models/User";
 
